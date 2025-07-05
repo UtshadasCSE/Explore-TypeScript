@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fancy Contact List (Tuple + TypeScript)</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #eef3f8, #dbeafe);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .container {
+        background: #fff;
+        padding: 30px 40px;
+        border-radius: 20px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 420px;
+        animation: fadeInUp 0.6s ease;
+        transition: transform 0.3s ease;
+      }
+
+      .container:hover {
+        transform: scale(1.01);
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 25px;
+        color: #2563eb;
+        font-weight: 600;
+        font-size: 28px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      input {
+        padding: 12px 15px;
+        font-size: 16px;
+        border: 2px solid #d0d7e6;
+        border-radius: 8px;
+        outline: none;
+        transition: border-color 0.3s, box-shadow 0.3s;
+      }
+
+      input:focus {
+        border-color: #2563eb;
+        box-shadow: 0 0 5px rgba(37, 99, 235, 0.4);
+      }
+
+      button {
+        padding: 12px;
+        background: linear-gradient(135deg, #3b82f6, #2563eb);
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 500;
+        box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+        transition: background 0.3s, transform 0.2s;
+      }
+
+      button:hover {
+        background: linear-gradient(135deg, #2563eb, #1d4ed8);
+        transform: translateY(-2px);
+      }
+
+      ul {
+        margin-top: 25px;
+        padding: 0;
+        list-style: none;
+      }
+
+      li {
+        background: #f0f5ff;
+        border-left: 4px solid #3b82f6;
+        padding: 12px 15px;
+        margin-bottom: 10px;
+        border-radius: 6px;
+        font-size: 15px;
+        color: #333;
+        animation: slideIn 0.4s ease;
+      }
+
+      @keyframes fadeInUp {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateX(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .container {
+          padding: 20px;
+        }
+
+        input,
+        button {
+          font-size: 15px;
+        }
+
+        h1 {
+          font-size: 22px;
+        }
+
+        li {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Contact Info</h1>
+      <form id="contactForm">
+        <input type="text" id="name" placeholder="Enter name" required />
+        <input type="number" id="age" placeholder="Enter age" required />
+        <button type="submit">Add Contact</button>
+      </form>
+      <ul id="contactList"></ul>
+    </div>
+
+    <script>
+      // Simulated TypeScript logic (compiled to JS)
+
+      // Define tuple type using JSDoc (for reference only)
+/** @typedef {[string, number]} Contact */
+
+      /** @type {Contact[]} */
+      const contacts = [];
+
+      const form = document.getElementById("contactForm");
+      const nameInput = document.getElementById("name");
+      const ageInput = document.getElementById("age");
+      const contactList = document.getElementById("contactList");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const name = nameInput.value.trim();
+        const age = Number(ageInput.value);
+
+        if (name && age > 0) {
+          /** @type {Contact} */
+          const newContact = [name, age];
+          contacts.push(newContact);
+          renderContacts();
+          nameInput.value = "";
+          ageInput.value = "";
+        }
+      });
+
+      function renderContacts() {
+        contactList.innerHTML = "";
+        contacts.forEach(([name, age], index) => {
+          const li = document.createElement("li");
+          li.textContent = `${index + 1}. ${name} (${age} years old)`;
+          contactList.appendChild(li);
+        });
+      }
+    </script>
+  </body>
+</html>
+
