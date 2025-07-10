@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Theme Switcher</title>
+    <!-- Use Google Fonts for nicer typography -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Use FontAwesome for sun & moon icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        transition: background 0.5s ease, color 0.5s ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .container {
+        text-align: center;
+      }
+      h1 {
+        margin-bottom: 20px;
+        font-size: 2rem;
+      }
+      .switch {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        background: #4e8cff;
+        border: none;
+        color: #fff;
+        padding: 12px 24px;
+        border-radius: 50px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background 0.3s, transform 0.2s;
+        box-shadow: 0 5px 15px rgba(78, 140, 255, 0.4);
+      }
+      .switch:hover {
+        background: #256eff;
+        transform: translateY(-2px);
+      }
+
+      /* Light Theme */
+      body.light {
+        background: #f0f4f8;
+        color: #333;
+      }
+
+      /* Dark Theme */
+      body.dark {
+        background: #0f172a;
+        color: #f1f5f9;
+      }
+
+      .icon {
+        font-size: 1.2rem;
+        transition: transform 0.5s;
+      }
+
+      .rotate {
+        transform: rotate(360deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Modern Theme Switcher</h1>
+      <button id="themeBtn" class="switch">
+        <i id="themeIcon" class="fas fa-moon icon"></i>
+        <span>Toggle Theme</span>
+      </button>
+    </div>
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
