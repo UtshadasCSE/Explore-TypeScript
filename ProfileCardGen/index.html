@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100dvh;
+      }
+      .container {
+        background-color: #ffff;
+        padding: 30px 40px;
+        border-radius: 15px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+      }
+      input {
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        border: 2px solid #d0d7e6;
+        border-radius: 8px;
+        font-size: 16px;
+      }
+      button {
+        background: linear-gradient(135deg, #0059ff67, #256eff);
+        color: white;
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: transform 0.2s, background 0.3s;
+      }
+      button:hover {
+        background: linear-gradient(135deg, #256eff, #0047d4);
+        transform: translateY(-2px);
+      }
+      .profile-card {
+        background: #fff;
+        border-radius: 12px;
+        padding: 20px;
+        margin-top: 20px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        animation: fadeIn 0.5s ease forwards;
+        transform: translateY(20px);
+        opacity: 0;
+      }
+      .profile-card h2 {
+        margin-bottom: 5px;
+      }
+
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Profile Card Generator</h2>
+      <input type="text" placeholder="Your name" id="nameInput" />
+      <input type="text" placeholder="Your Job Title" id="jobInput" />
+      <button id="createBtn">Create Profile</button>
+      <div id="profileCardContainer"></div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
