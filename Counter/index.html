@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: #eef5ff;
+        font-family: sans-serif;
+      }
+
+      .counter {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      button {
+        font-size: 20px;
+        padding: 10px 20px;
+        margin: 10px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        background: #4e8cff;
+        color: white;
+        transition: transform 0.2s;
+      }
+
+      button:hover {
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="counter">
+      <h2 id="count">0</h2>
+      <button id="increment">➕</button>
+      <button id="decrement">➖</button>
+    </div>
+    <!-- CDN JS File -->
+    <script src="app.js"></script>
+  </body>
+</html>
