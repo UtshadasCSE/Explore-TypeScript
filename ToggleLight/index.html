@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Light Switch</title>
+    <style>
+      body {
+        background: #121212;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: sans-serif;
+      }
+
+      .switch {
+        text-align: center;
+      }
+
+      button {
+        padding: 10px 20px;
+        border: none;
+        background: #ffcc00;
+        color: #121212;
+        font-weight: bold;
+        border-radius: 6px;
+        margin-top: 20px;
+        cursor: pointer;
+      }
+      button:hover {
+        transform: translateY(10px);
+        background: #c09b08;
+        transition: 0.5s ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="switch">
+      <h1 id="status">OFF</h1>
+      <button id="toggle">Toggle Light</button>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
